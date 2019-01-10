@@ -29,11 +29,13 @@ class Form extends Component {
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>
-                <input type="search" 
-                       placeholder="Your city" 
-                       value = {this.state.city}
-                       onChange = {this.changeInput}/>
-                <button > Search </button>
+                <div>
+                    <input type="search" 
+                           placeholder="Your city" 
+                           value = {this.state.city}
+                           onChange = {this.changeInput}/>
+                    <button > Search </button>
+                </div>
                 <div>
                     <button type="button" onClick={this.currentLocation}>Current Location</button>
                 </div>

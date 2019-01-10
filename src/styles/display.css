@@ -13,8 +13,34 @@
     display: inline-block;
     width: 20%;
     padding: 20px;
-    border: 1px solid green;
+    border: 1px solid #f45f04;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 10px 0px #9e3e04;
+    background-color: transparent;
+
+}
+.tabs li div {
+    display: flex;
+    justify-content: space-between;
+}
+.tabs li span p {
+    margin: 0;
 }
 .tabs li.active {
-    border-color: green green transparent green;
+    border-color: #f45f04 #f45f04 transparent #f45f04;
+    position: relative;
+    top: -5px;
+    background-color: white;
+    z-index: 2;
+    transform: scaleY(1.05);
+}
+.tabs li.active div {
+    width: calc(100% - 1px);
+    position: absolute;
+    left: 0;
+    padding: 0 20px;
+    height: 85px;
+    background-color: white;
+  
 }

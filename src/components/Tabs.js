@@ -5,13 +5,22 @@ class Tabs extends Component {
         return (
               <ul className="tabs">
                    {
-                    this.props.data.map((item, i) => <li 
-                        key={i} 
-                        className={this.props.activeTab === i ? "active" : null } 
-                        onClick = {this.props.changeTab(i)}>
+                    this.props.data.map((item, i) => 
+                      <li key={i} 
+                          className={this.props.activeTab === i ? "active" : null } 
+                          onClick = {this.props.changeTab(i)}>
                         <p>{item.date}</p>
-                        {item.temp_min} {item.temp_max}
-                        </li>)
+                        <div>
+                          <span>
+                            <p>min</p>
+                            <p>{item.temp_min}ᵒC</p>
+                          </span>
+                          <span>
+                            <p>max</p>
+                            <p>{item.temp_max}ᵒC</p>
+                          </span>
+                        </div>
+                      </li>)
                   }
                </ul>
             )
