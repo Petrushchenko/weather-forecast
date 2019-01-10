@@ -1,0 +1,20 @@
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.tabs {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 20px 0 0;
+}
+.tabs li {
+    display: inline-block;
+    width: 20%;
+    padding: 20px;
+    border: 1px solid green;
+}
+.tabs li.active {
+    border-color: green green transparent green;
+}

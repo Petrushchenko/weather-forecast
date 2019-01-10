@@ -1,0 +1,14 @@
+.weather {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent green green green; 
+}
+.weather div {
+    text-align: center;
+}
+.weather div span{
+    display: block;
+}
