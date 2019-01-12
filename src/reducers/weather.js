@@ -10,6 +10,7 @@ import {
   FETCH_WEATHER
 } from "../store/constants";
 
+
 export function fetchWeather (str) {
   return (dispatch) => {
     dispatch({type:FETCH_WEATHER+START,query:str});
@@ -23,7 +24,7 @@ export function fetchWeather (str) {
 const initialState = {
   query: "",
   status: false,
-  search: parserWeather(Data)["Kyiv"]
+  search: parserWeather(Data)
 };
 
 const actionHandlers = {
@@ -38,8 +39,7 @@ const actionHandlers = {
   [FETCH_WEATHER+SUCCESS]: (state, action) => {
     const { payload } = action;
     const d = parserWeather(payload);
-    const key = Object.keys(d)[0];
-    return {...state, status: false, search: d[key]};
+    return {...state, status: false, search: d};
   },
   [FETCH_WEATHER+ERROR]: (state, action) => {
     const { meta } = action;

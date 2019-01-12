@@ -25,7 +25,9 @@ class Form extends Component {
         ev.preventDefault();
         this.props.fetchWeather(this.state.city)
     }
-    
+    componentWillMount(){
+        this.props.fetchWeather("Kyiv")
+    }
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>

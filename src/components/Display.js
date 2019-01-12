@@ -5,7 +5,6 @@ import '../styles/display.css';
 import { connect} from 'react-redux';
 
 
-
 class Display extends Component {
     state ={
         activeTab: 0
@@ -16,16 +15,20 @@ class Display extends Component {
         })
     }
     render () {
-    const items = this.props.data;
-    console.log(items)
+    const key = Object.keys(this.props.data)[0];
+    const items = this.props.data[key];
+    //console.log(key, items)
 
         return(
             <div className ="content">
-                <Tabs data = {items} 
-                    activeTab = {this.state.activeTab} 
-                    changeTab = {this.changeActiveTab}
-                 />
-                <Tab data = {items[this.state.activeTab]}/>
+                <h2>Weather in {key}</h2>
+                <div>
+                    <Tabs data = {items} 
+                        activeTab = {this.state.activeTab} 
+                        changeTab = {this.changeActiveTab}
+                     />
+                    <Tab data = {items[this.state.activeTab]}/>
+                </div>
             </div>
             )
     }

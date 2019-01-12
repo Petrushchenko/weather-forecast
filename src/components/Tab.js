@@ -3,12 +3,12 @@ import '../styles/tab.css';
 
 class Tab extends Component {
     render(){
-      // console.log(this.props.data.ranges)
+      
        const data = this.props.data.ranges.map((el, index) => 
             <div key = {index}>
                 <img src={`http://openweathermap.org/img/w/${el.icon}.png`} alt=""></img>
                 <span>{el.hour.slice(0, 5)}</span>
-                <p>Temperature<br></br>{el.temp}ᵒC</p>
+                <p>Temperature<br></br>{Math.floor(el.temp)}ᵒC</p>
                 <p>Humidity<br></br> {el.humidity}%</p>
 
             </div>

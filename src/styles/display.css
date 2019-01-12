@@ -2,12 +2,21 @@
     max-width: 960px;
     margin: 0 auto;
 }
+.content > div {
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    text-align: left;
+    color: #9e3e04;
+}
 .tabs {
     list-style-type: none;
     display: flex;
     justify-content: center;
     padding: 0;
     margin: 20px 0 0;
+    margin-bottom: -1px;
 }
 .tabs li {
     display: inline-block;
@@ -18,7 +27,6 @@
     border-top-right-radius: 10px;
     box-shadow: 0 0 10px 0px #9e3e04;
     background-color: transparent;
-
 }
 .tabs li div {
     display: flex;
@@ -26,6 +34,11 @@
 }
 .tabs li span p {
     margin: 0;
+}
+.tabs li span p:last-child {
+    color: #9e3e04;
+    font-weight: 700;
+    font-size: 16px;
 }
 .tabs li.active {
     border-color: #f45f04 #f45f04 transparent #f45f04;
@@ -41,6 +54,68 @@
     left: 0;
     padding: 0 20px;
     height: 85px;
-    background-color: white;
-  
+    background-color: white; 
+}
+.tabs li.active > p {
+    background-color: #f45f04;
+    border-radius: 10px;
+    border: 1px solid #9e3e04;
+}
+@media (max-width: 800px) {
+    .content {
+        width: 96%;
+    }
+    .content > div {
+        flex-direction: row;
+        max-height: 100vh;
+    }
+    .tabs {
+        flex-direction: column;
+        width: 25%;
+        max-height: 100%;
+        margin: 0 0 0 10px;
+    }
+    .tabs li {
+        display: flex;
+        width: 100%;
+        height: calc(100% / 6);
+        padding: 0 20px;
+        border: 1px solid #f45f04;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0; 
+
+        box-shadow: 0 0 10px 0px #9e3e04;
+    }
+    .tabs li div {
+        flex-direction: column;
+        margin-left: 10px;
+        padding: 10px 0;
+
+    }
+    .tabs li span p {
+        display: inline-block;
+    }
+    .tabs li > p {
+        padding: 2px;
+        width: 5ch; text-align: center;
+    }
+    .tabs li.active {
+        border-color: #f45f04 transparent #f45f04 #f45f04;
+        left: -4px;
+        top:0;
+        z-index: 2;
+        transform: scaleX(1.05);
+    }
+    .tabs li.active div {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 40%;
+        padding: 10px 0;
+        
+        margin: 0;
+        width: 110px;
+        background-color: white; 
+    }
+
 }

@@ -22,4 +22,9 @@ input {
     border:1px solid #9e3e04;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    outline: none;
+}
+input:focus {
+    box-shadow: 0 0 10px 0px #9e3e04;
+    
 }
