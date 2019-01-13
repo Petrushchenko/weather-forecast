@@ -13,11 +13,11 @@ class Tabs extends Component {
                         <div>
                           <span>
                             <p>min</p>
-                            <p>{Math.floor(item.temp_min)}ᵒC</p>
+                            <p>{Math.round(item.temp_min)}ᵒC</p>
                           </span>
                           <span>
                             <p>max</p>
-                            <p>{Math.floor(item.temp_max)}ᵒC</p>
+                            <p>{Math.round(item.temp_max)}ᵒC</p>
                           </span>
                         </div>
                       </li>)

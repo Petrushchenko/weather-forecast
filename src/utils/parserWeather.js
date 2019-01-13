@@ -25,6 +25,10 @@ function parserWeather(data) {
         temp_max,
         prev[currentIndex].temp_max
       );
+      prev[currentIndex].temp_min = Math.min(
+        temp_min,
+        prev[currentIndex].temp_min
+      );   
     } else {
       prev.push({
         date,
@@ -43,7 +47,9 @@ function parserWeather(data) {
 
     return prev;
   }, []);
-
+  console.log(data, {
+    [city]: list
+  })
   return {
     [city]: list
   };
