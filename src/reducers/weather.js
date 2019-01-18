@@ -1,6 +1,5 @@
 
 import parserWeather from "../utils/parserWeather";
-import Data from '../data';
 
 import {
   API_ROOT,
@@ -15,16 +14,20 @@ export function fetchWeather (str) {
   return (dispatch) => {
     dispatch({type:FETCH_WEATHER+START,query:str});
     fetch( API_ROOT + encodeURIComponent(str))
-    .then(res=> res.json())
-    .then(res => {
-      dispatch({type: FETCH_WEATHER+SUCCESS, payload: res});
-    })
+      .then(res=> res.json())
+      .then(res => {
+        dispatch({type: FETCH_WEATHER+SUCCESS, payload: res});
+      })
+      .catch( err => {
+        dispatch({type: FETCH_WEATHER+ERROR});
+      })
+     
   }
 }
 const initialState = {
   query: "",
   status: false,
-  search: parserWeather(Data)
+  search: null
 };
 
 const actionHandlers = {
@@ -42,9 +45,8 @@ const actionHandlers = {
     return {...state, status: false, search: d};
   },
   [FETCH_WEATHER+ERROR]: (state, action) => {
-    const { meta } = action;
-
-    return {...state, status:false};
+    
+    return {...state, status:false, search: null};
   }
 };
 

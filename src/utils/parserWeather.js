@@ -47,9 +47,7 @@ function parserWeather(data) {
 
     return prev;
   }, []);
-  console.log(data, {
-    [city]: list
-  })
+ 
   return {
     [city]: list
   };

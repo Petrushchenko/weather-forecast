@@ -15,23 +15,40 @@ class Display extends Component {
         })
     }
     render () {
-    const key = Object.keys(this.props.data)[0];
-    const items = this.props.data[key];
-    //console.log(key, items)
-
-        return(
-            <div className ="content">
-                <h2>Weather in {key}</h2>
-                <div>
-                    <Tabs data = {items} 
-                        activeTab = {this.state.activeTab} 
-                        changeTab = {this.changeActiveTab}
-                     />
-                    <Tab data = {items[this.state.activeTab]}/>
-                </div>
+    const key = this.props.data ? Object.keys(this.props.data)[0] : null;
+    const items = key ? this.props.data[key] : null;
+    let st = this.props.status;
+    let block = <div className="preloader">
+                        <div className="spinner"></div>
+                </div>;
+    if(st === false) {
+        if (key) {
+            block = <div className="info">
+                        <h2>Weather in {key}</h2>
+                        <div>
+                            <Tabs data = {items} 
+                                activeTab = {this.state.activeTab} 
+                                changeTab = {this.changeActiveTab}
+                             />
+                            <Tab data = {items[this.state.activeTab]}/>
+                        </div>
+                    </div>;
+        } else {
+           block =  <div className = "error">
+                <p>city not found</p>
             </div>
-            )
+        }
+        
+    }
+
+    return(   
+            <div className ="content">
+                {block}
+
+            </div>
+
+        )
     }
 }
 
-export default connect((state) => ({data:state.weather.search}))(Display);
+export default connect((state) => ({data:state.weather.search, status:state.weather.status}))(Display);
