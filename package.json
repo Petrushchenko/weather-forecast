@@ -2,7 +2,7 @@
   "name": "weather",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Petrushchenko.github.io/weather/",
+  "homepage": "https://Petrushchenko.github.io/weather-forecast/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.6.3",
